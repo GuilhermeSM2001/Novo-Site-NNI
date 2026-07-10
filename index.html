@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Novos Negócios e Inovação — LIGA Contra o Câncer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=DM+Mono:wght@400;500&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--red:#E7674D;--coral:#F0806A;--dark:#1A1A1A;--text:#1F1F1F;
+--text2:#5A5A5A;--muted:#999;--light:#F5F5F5;--white:#fff;
+--border:#E0E0E0;--blue:#2B5C8A;--radius:6px;
+--display:'DM Sans',sans-serif;--body:'Inter',sans-serif;--mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--body);color:var(--text);line-height:1.65;background:var(--white)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,26,26,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{height:32px;opacity:.9}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);font-size:.8rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--red);color:var(--white)!important;padding:.45rem 1.1rem;border-radius:var(--radius);font-size:.78rem;font-weight:600;letter-spacing:.03em}
+.nav-cta:hover{background:var(--coral)}
+
+/* HERO */
+.hero{background:var(--dark);padding:9rem 2rem 5rem;color:var(--white);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-120px;bottom:-120px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(231,103,77,.12),transparent 70%)}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{font-family:var(--mono);font-size:.75rem;color:var(--coral);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem}
+.hero h1{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;line-height:1.15;margin-bottom:1.2rem;max-width:700px}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.65);max-width:580px;line-height:1.7;margin-bottom:3rem}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:3rem;max-width:720px}
+.stat-item{border-left:2px solid var(--red);padding-left:1rem}
+.stat-num{font-family:var(--mono);font-size:2rem;font-weight:500;color:var(--white);line-height:1}
+.stat-label{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.35rem;line-height:1.3}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;padding:.75rem 1.6rem;border-radius:var(--radius);font-size:.88rem;font-weight:600;letter-spacing:.02em;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--red);color:var(--white)}
+.btn-primary:hover{background:var(--coral)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.25)}
+.btn-outline:hover{border-color:rgba(255,255,255,.5)}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-bg{background:var(--light)}
+.section-tag{font-family:var(--mono);font-size:.72rem;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem}
+.section-title{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.25;margin-bottom:1rem}
+.section-desc{font-size:1rem;color:var(--text2);max-width:640px;line-height:1.75;margin-bottom:2.5rem}
+
+/* QUEM SOMOS */
+.quem-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.quem-text p{color:var(--text2);line-height:1.8;margin-bottom:1.2rem;font-size:.95rem}
+.quem-text p strong{color:var(--text);font-weight:600}
+.quem-objetivos{list-style:none;margin-top:1.5rem}
+.quem-objetivos li{padding:.55rem 0;padding-left:1.4rem;position:relative;font-size:.9rem;color:var(--text2);border-bottom:1px solid var(--border)}
+.quem-objetivos li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--red)}
+.quem-visual{background:var(--light);border-radius:12px;padding:3rem 2rem;text-align:center}
+.quem-visual .ict-badge{display:inline-flex;align-items:center;gap:.6rem;background:var(--white);border:1px solid var(--border);border-radius:40px;padding:.5rem 1.2rem .5rem .5rem;margin-bottom:1.5rem}
+.ict-dot{width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--white)}
+.ict-label{font-size:.78rem;font-weight:600;color:var(--text);letter-spacing:.03em}
+.quem-visual p{font-size:.85rem;color:var(--text2);line-height:1.7}
+
+/* ECOSSISTEMA */
+.eco-diagram{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+.eco-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:border-color .2s}
+.eco-card:hover{border-color:var(--red)}
+.eco-icon{width:36px;height:36px;border-radius:8px;background:var(--light);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;font-size:.85rem;font-weight:700;color:var(--red)}
+.eco-card h4{font-family:var(--display);font-size:.92rem;font-weight:600;margin-bottom:.4rem}
+.eco-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
+.eco-center{grid-column:2/4;background:var(--dark);color:var(--white);border-color:var(--dark);text-align:center;padding:2rem}
+.eco-center h4{color:var(--white);font-size:1rem}
+.eco-center p{color:rgba(255,255,255,.6)}
+.eco-center:hover{border-color:var(--red)}
+.eco-msg{text-align:center;margin-top:2.5rem;font-size:.9rem;color:var(--text2);font-style:italic;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* FLUXO */
+.flow-track{display:flex;gap:0;margin-top:2.5rem;position:relative}
+.flow-step{flex:1;position:relative;text-align:center;padding:0 .5rem}
+.flow-step::before{content:'';position:absolute;top:20px;left:0;right:0;height:2px;background:var(--border);z-index:0}
+.flow-step:first-child::before{left:50%}
+.flow-step:last-child::before{right:50%}
+.flow-num{width:40px;height:40px;border-radius:50%;background:var(--white);border:2px solid var(--red);display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.85rem;font-weight:500;color:var(--red);position:relative;z-index:1;margin-bottom:.8rem}
+.flow-step.active .flow-num{background:var(--red);color:var(--white)}
+.flow-name{font-family:var(--display);font-size:.82rem;font-weight:600;margin-bottom:.4rem;line-height:1.3}
+.flow-desc{font-size:.72rem;color:var(--muted);line-height:1.5}
+.flow-note{text-align:center;margin-top:2rem;font-size:.78rem;color:var(--muted);font-style:italic}
+.flow-feedback{display:flex;justify-content:center;gap:.6rem;margin-top:1.2rem;flex-wrap:wrap}
+.flow-tag{font-size:.68rem;padding:.25rem .7rem;border-radius:20px;border:1px solid var(--border);color:var(--text2)}
+.flow-tag.highlight{border-color:var(--red);color:var(--red);background:rgba(231,103,77,.04)}
+
+/* FRENTES */
+.frentes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.frente-card{padding:1.8rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);transition:all .2s}
+.frente-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.frente-card h4{font-family:var(--display);font-size:.95rem;font-weight:600;margin-bottom:.5rem}
+.frente-card p{font-size:.82rem;color:var(--text2);line-height:1.65}
+.frente-card:nth-child(4){grid-column:1/2}
+.frente-card:nth-child(5){grid-column:2/3}
+
+/* PROGRAMAS */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prog-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+.prog-card:hover{border-color:var(--red)}
+.prog-header{padding:1.5rem;border-bottom:1px solid var(--border)}
+.prog-header h4{font-family:var(--display);font-size:1.05rem;font-weight:700;margin-bottom:.3rem}
+.prog-header span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.prog-body{padding:1.5rem}
+.prog-body p{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:1rem}
+.prog-list{list-style:none;margin-bottom:1.2rem}
+.prog-list li{font-size:.8rem;color:var(--text2);padding:.35rem 0;padding-left:1rem;position:relative}
+.prog-list li::before{content:'—';position:absolute;left:0;color:var(--red)}
+.prog-cta{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:600;color:var(--red);transition:gap .2s}
+.prog-cta:hover{gap:.7rem}
+.prog-cta::after{content:'→'}
+
+/* STARTUPS */
+.startup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2rem}
+.startup-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;transition:all .2s;cursor:pointer}
+.startup-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.startup-logo{width:64px;height:64px;border-radius:12px;background:var(--light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.startup-card h5{font-family:var(--display);font-size:.88rem;font-weight:600;margin-bottom:.2rem}
+.startup-card span{font-size:.72rem;color:var(--muted)}
+
+/* PI */
+.pi-tabs{display:flex;gap:0;margin-bottom:2rem;border-bottom:1px solid var(--border)}
+.pi-tab{padding:.7rem 1.5rem;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.pi-tab.active{color:var(--red);border-bottom-color:var(--red)}
+.pi-table{width:100%;border-collapse:collapse}
+.pi-table th{text-align:left;padding:.7rem 1rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border);font-weight:500}
+.pi-table td{padding:.8rem 1rem;font-size:.85rem;border-bottom:1px solid var(--border);color:var(--text2)}
+.pi-status{display:inline-flex;padding:.15rem .6rem;border-radius:20px;font-size:.7rem;font-weight:500}
+.pi-status.granted{background:#E8F5E9;color:#2E7D32}
+.pi-status.pending{background:#FFF8E1;color:#F57F17}
+.pi-license{font-size:.75rem;color:var(--red);font-weight:500}
+
+/* NUMEROS */
+.numeros{background:var(--dark);color:var(--white);padding:4.5rem 2rem}
+.numeros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;max-width:900px;margin:0 auto}
+.numero-item{text-align:center}
+.numero-val{font-family:var(--mono);font-size:2.8rem;font-weight:500;color:var(--white);line-height:1}
+.numero-label{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.5rem}
+
+/* PARCERIAS */
+.parceiros-cats{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.parceiro-cat{padding:.4rem 1rem;border-radius:20px;font-size:.75rem;font-weight:500;border:1px solid var(--border);color:var(--text2);cursor:pointer;transition:all .2s}
+.parceiro-cat.active{border-color:var(--red);color:var(--red);background:rgba(231,103,77,.04)}
+.parceiros-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.parceiro-logo{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);height:80px;display:flex;align-items:center;justify-content:center;transition:border-color .2s;cursor:pointer}
+.parceiro-logo:hover{border-color:var(--red)}
+.parceiro-logo span{font-family:var(--mono);font-size:.65rem;color:var(--muted)}
+
+/* NOTICIAS */
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:2.5rem}
+.news-list{display:flex;flex-direction:column;gap:1.2rem}
+.news-card{display:flex;gap:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+.news-img{width:140px;height:90px;background:var(--light);border-radius:var(--radius);flex-shrink:0}
+.news-content h4{font-family:var(--display);font-size:.9rem;font-weight:600;margin-bottom:.3rem;line-height:1.35}
+.news-content span{font-size:.72rem;color:var(--muted)}
+.news-content p{font-size:.8rem;color:var(--text2);margin-top:.3rem;line-height:1.55}
+.events-list{display:flex;flex-direction:column;gap:1rem}
+.event-card{padding:1.2rem;border:1px solid var(--border);border-radius:var(--radius)}
+.event-date{font-family:var(--mono);font-size:.72rem;color:var(--red);margin-bottom:.3rem}
+.event-card h5{font-family:var(--display);font-size:.88rem;font-weight:600;margin-bottom:.2rem}
+.event-card span{font-size:.72rem;color:var(--muted)}
+.event-badge{display:inline-flex;padding:.1rem .5rem;border-radius:12px;font-size:.65rem;background:rgba(231,103,77,.08);color:var(--red);margin-left:.5rem}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--dark) 0%,#2a2a2a 100%);color:var(--white);padding:5rem 2rem}
+.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.cta-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:2rem;transition:all .2s}
+.cta-card:hover{border-color:rgba(231,103,77,.4);background:rgba(255,255,255,.06)}
+.cta-icon{width:44px;height:44px;border-radius:10px;background:rgba(231,103,77,.15);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.1rem}
+.cta-card h4{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:.5rem}
+.cta-card p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:1.2rem}
+.cta-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.2rem;border-radius:var(--radius);background:var(--red);color:var(--white);font-size:.82rem;font-weight:600;transition:background .2s}
+.cta-btn:hover{background:var(--coral)}
+.cta-footer{text-align:center;margin-top:2.5rem;font-size:.78rem;color:rgba(255,255,255,.35)}
+
+/* FOOTER */
+.footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:2.5rem 2rem;color:rgba(255,255,255,.35);font-size:.78rem;text-align:center}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+ .hero-stats{grid-template-columns:repeat(2,1fr)}
+ .quem-grid,.news-grid{grid-template-columns:1fr}
+ .eco-diagram{grid-template-columns:repeat(2,1fr)}
+ .eco-center{grid-column:1/3}
+ .flow-track{flex-direction:column;gap:1rem}
+ .flow-step::before{display:none}
+ .flow-step{text-align:left;display:flex;align-items:flex-start;gap:1rem;padding:0}
+ .flow-num{flex-shrink:0}
+ .frentes-grid,.prog-grid,.cta-grid{grid-template-columns:1fr}
+ .frente-card:nth-child(4),.frente-card:nth-child(5){grid-column:auto}
+ .startup-grid{grid-template-columns:repeat(2,1fr)}
+ .parceiros-grid{grid-template-columns:repeat(3,1fr)}
+ .numeros-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<img src="data:image/png;base64,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" alt="LIGA Contra o Câncer" class="nav-logo">
+<ul class="nav-links">
+<li><a href="#quem">Quem somos</a></li>
+<li><a href="#ecossistema">Ecossistema</a></li>
+<li><a href="#fluxo">Como funciona</a></li>
+<li><a href="#programas">Programas</a></li>
+<li><a href="#pi">PI</a></li>
+<li><a href="#parcerias">Parcerias</a></li>
+<li><a href="#contato" class="nav-cta">Fale com o NNI</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-tag">Núcleo de Novos Negócios e Inovação</div>
+<h1>Inovação que nasce do cuidado e transforma a saúde</h1>
+<p class="hero-sub">O NNI da LIGA conecta conhecimento científico, tecnologia e parcerias estratégicas para gerar soluções reais — da bancada ao paciente.</p>
+<div class="hero-stats">
+<div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Patentes registradas</div></div>
+<div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Startups incubadas</div></div>
+<div class="stat-item"><div class="stat-num">34</div><div class="stat-label">Parceiros ativos</div></div>
+<div class="stat-item"><div class="stat-num">R$ 4.2M</div><div class="stat-label">Recursos captados</div></div>
+</div>
+<div class="hero-actions">
+<a href="#ecossistema" class="btn btn-primary">Conheça nosso ecossistema</a>
+<a href="#contato" class="btn btn-outline">Fale com o NNI</a>
+</div>
+</div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem">
+<div class="section-inner">
+<div class="quem-grid">
+<div class="quem-text">
+<div class="section-tag">Quem somos</div>
+<h2 class="section-title">O núcleo que transforma conhecimento em solução</h2>
+<p>O Núcleo de Novos Negócios e Inovação da LIGA é a estrutura responsável por transformar o conhecimento produzido pela instituição em soluções aplicáveis à saúde. Em uma instituição filantrópica oncológica, inovar não é opcional — é o caminho para ampliar o impacto assistencial, garantir sustentabilidade e criar novas formas de levar saúde de qualidade a mais pessoas.</p>
+<p>A LIGA é reconhecida como <strong>Instituição Científica, Tecnológica e de Inovação (ICT)</strong> nos termos do Marco Legal de CT&amp;I (Lei 13.243/2016). Na prática, isso significa que parceiros públicos e privados podem colaborar com a LIGA em bases jurídicas sólidas e ágeis — contratos de P&amp;D, transferência de tecnologia, licenciamento de ativos e captação via instrumentos de fomento.</p>
+<ul class="quem-objetivos">
+<li>Identificar oportunidades de inovação em saúde</li>
+<li>Desenvolver projetos estratégicos com impacto assistencial</li>
+<li>Conectar empresas, startups e instituições ao ecossistema da LIGA</li>
+<li>Proteger e valorizar o conhecimento gerado pela instituição</li>
+<li>Transferir tecnologia ao mercado por instrumentos contratuais adequados</li>
+</ul>
+</div>
+<div class="quem-visual">
+<div class="ict-badge"><span class="ict-dot">ICT</span><span class="ict-label">Instituição Científica, Tecnológica e de Inovação</span></div>
+<p>Enquadramento reconhecido nos termos da Lei 13.243/2016, habilitando a LIGA para contratos de P&amp;D, transferência de tecnologia, licenciamento e captação via Marco Legal de CT&amp;I.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ECOSSISTEMA -->
+<section id="ecossistema" class="section-bg">
+<div class="section-inner">
+<div class="section-tag">Ecossistema</div>
+<h2 class="section-title">Onde a inovação da LIGA acontece</h2>
+<p class="section-desc">O NNI não opera isolado. Atua como elo entre os pilares da instituição, integrando capacidades que nenhuma área produziria sozinha.</p>
+<div class="eco-diagram">
+<div class="eco-card"><div class="eco-icon">A</div><h4>Assistência</h4><p>Os desafios do cuidado ao paciente são o ponto de partida para projetos de inovação com impacto clínico direto.</p></div>
+<div class="eco-card"><div class="eco-icon">E</div><h4>Ensino</h4><p>A formação de profissionais alimenta a cultura de inovação e gera capital humano qualificado.</p></div>
+<div class="eco-card"><div class="eco-icon">P</div><h4>Pesquisa</h4><p>Conhecimento científico como matéria-prima para proteção intelectual e transferência.</p></div>
+<div class="eco-card"><div class="eco-icon">T</div><h4>Tecnologia</h4><p>Infraestrutura tecnológica que sustenta desenvolvimento, validação e escala de soluções.</p></div>
+<div class="eco-center"><h4>NNI — Novos Negócios e Inovação</h4><p>Elo integrador entre os pilares da LIGA</p></div>
+<div class="eco-card"><div class="eco-icon">G</div><h4>Gestão</h4><p>Processos hospitalares como fonte de oportunidades para inovação em eficiência operacional.</p></div>
+<div class="eco-card"><div class="eco-icon">IA</div><h4>Inovação Aberta</h4><p>Contribuições externas — startups, universidades e empresas — para desafios que ultrapassam capacidades internas.</p></div>
+<div class="eco-card"><div class="eco-icon">PE</div><h4>Parcerias</h4><p>Acordos com instituições públicas e privadas que ampliam alcance e recursos para inovação.</p></div>
+</div>
+</div>
+</section>
+
+<!-- FLUXO -->
+<section id="fluxo">
+<div class="section-inner">
+<div class="section-tag">Como funciona</div>
+<h2 class="section-title">Da ideia ao resultado</h2>
+<p class="section-desc">Se você chegar com uma ideia ou tecnologia, este é o caminho que ela percorre dentro do NNI.</p>
+<div class="flow-track">
+<div class="flow-step active"><div class="flow-num">1</div><div><div class="flow-name">Captação</div><div class="flow-desc">Recebemos projetos e indicações. A busca também é ativa.</div></div></div>
+<div class="flow-step"><div class="flow-num">2</div><div><div class="flow-name">Triagem</div><div class="flow-desc">Avaliamos viabilidade, impacto e alinhamento. Feedback fundamentado para todos.</div></div></div>
+<div class="flow-step"><div class="flow-num">3</div><div><div class="flow-name">Avaliação</div><div class="flow-desc">Gerência de inovação avalia e define o encaminhamento adequado.</div></div></div>
+<div class="flow-step"><div class="flow-num">4</div><div><div class="flow-name">Aprovação</div><div class="flow-desc">Projetos estratégicos passam pelo Conselho de Inovação.</div></div></div>
+<div class="flow-step"><div class="flow-num">5</div><div><div class="flow-name">Planejamento</div><div class="flow-desc">Escopo, cronograma, parceiros, recursos e KPIs definidos.</div></div></div>
+<div class="flow-step"><div class="flow-num">6</div><div><div class="flow-name">Execução</div><div class="flow-desc">Desenvolvimento com monitoramento contínuo de prazos e riscos.</div></div></div>
+<div class="flow-step"><div class="flow-num">7</div><div><div class="flow-name">Difusão</div><div class="flow-desc">Resultados consolidados, case divulgado — ou expansão do projeto.</div></div></div>
+</div>
+<div class="flow-feedback">
+<span class="flow-tag highlight">↩ Feedback na etapa 2</span>
+<span class="flow-tag highlight">↻ Expansão na etapa 7</span>
+<span class="flow-tag">PI encaminhada durante execução</span>
+</div>
+<p class="flow-note">Quer submeter um projeto? <a href="#contato" style="color:var(--red);font-weight:600;text-decoration:underline">Clique aqui</a>.</p>
+</div>
+</section>
+
+<!-- FRENTES -->
+<section class="section-bg">
+<div class="section-inner">
+<div class="section-tag">Frentes de atuação</div>
+<h2 class="section-title">Onde a LIGA inova</h2>
+<div class="frentes-grid">
+<div class="frente-card"><h4>Inovação em Saúde</h4><p>Desenvolvimento e validação de soluções para desafios assistenciais e operacionais reais da LIGA e do sistema de saúde.</p></div>
+<div class="frente-card"><h4>Transformação Digital</h4><p>Dados em saúde, automação, inteligência artificial e melhoria da experiência do paciente. Tecnologia a serviço de quem cuida.</p></div>
+<div class="frente-card"><h4>Novos Modelos de Negócio</h4><p>Iniciativas que ampliem o impacto social da LIGA e garantam sustentabilidade de longo prazo. Filantropia e geração de valor caminham juntas.</p></div>
+<div class="frente-card"><h4>Pesquisa Aplicada</h4><p>Transformação do conhecimento científico em soluções práticas com potencial de proteção intelectual e transferência.</p></div>
+<div class="frente-card"><h4>Educação e Capacitação</h4><p>Formação de profissionais em inovação, empreendedorismo e tecnologia aplicada à saúde.</p></div>
+</div>
+</div>
+</section>
+
+<!-- PROGRAMAS -->
+<section id="programas">
+<div class="section-inner">
+<div class="section-tag">Programas</div>
+<h2 class="section-title">Estruturas que você pode acessar</h2>
+<p class="section-desc">Programas em funcionamento com identidade própria. Não são conceitos — são portas de entrada.</p>
+<div class="prog-grid">
+<div class="prog-card">
+<div class="prog-header"><h4>Incubadora LIGA</h4><span>Startups em saúde</span></div>
+<div class="prog-body">
+<p>Apoio a startups de base tecnológica com foco em saúde. Infraestrutura, mentoria, acesso a dados clínicos de referência e validação em ambiente hospitalar real.</p>
+<ul class="prog-list">
+<li>Infraestrutura física e tecnológica</li>
+<li>Mentoria em negócios e inovação</li>
+<li>Acesso ao ecossistema clínico da LIGA</li>
+<li>Suporte jurídico e de PI</li>
+</ul>
+<a href="#contato" class="prog-cta">Apresente sua startup</a>
+</div></div>
+<div class="prog-card">
+<div class="prog-header"><h4>Residência em TI</h4><span>Formação prática</span></div>
+<div class="prog-body">
+<p>Programa que conecta profissionais de tecnologia ao ambiente hospitalar, desenvolvendo competências em saúde digital, sistemas de informação e inovação aplicada à oncologia.</p>
+<ul class="prog-list">
+<li>Atuação direta nos projetos do NNI</li>
+<li>Supervisão especializada</li>
+<li>Competências em saúde digital</li>
+<li>Gestão de dados clínicos</li>
+</ul>
+<a href="#contato" class="prog-cta">Saiba como participar</a>
+</div></div>
+<div class="prog-card">
+<div class="prog-header"><h4>Transferência de Tecnologia</h4><span>Licenciamento e contratos</span></div>
+<div class="prog-body">
+<p>Ativos tecnológicos da LIGA disponíveis para licenciamento e transferência ao setor produtivo, por meio de instrumentos adequados ao Marco Legal de CT&amp;I.</p>
+<ul class="prog-list">
+<li>Licenciamento de patentes e softwares</li>
+<li>Cessão de tecnologia</li>
+<li>Contratos de P&amp;D</li>
+<li>Encomenda tecnológica</li>
+</ul>
+<a href="#pi" class="prog-cta">Quero licenciar uma tecnologia</a>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- STARTUPS -->
+<section class="section-bg">
+<div class="section-inner">
+<div class="section-tag">Ecossistema</div>
+<h2 class="section-title">Startups que cresceram com a LIGA</h2>
+<p class="section-desc">Empresas que fazem parte do nosso ecossistema de inovação.</p>
+<div class="startup-grid">
+<div class="startup-card"><div class="startup-logo">logo</div><h5>OncoData</h5><span>Diagnóstico por IA</span></div>
+<div class="startup-card"><div class="startup-logo">logo</div><h5>VitalPath</h5><span>Gestão Oncológica</span></div>
+<div class="startup-card"><div class="startup-logo">logo</div><h5>RadiX Health</h5><span>Radioterapia Digital</span></div>
+<div class="startup-card"><div class="startup-logo">logo</div><h5>CareFlow</h5><span>Saúde Digital</span></div>
+</div>
+</div>
+</section>
+
+<!-- PI -->
+<section id="pi">
+<div class="section-inner">
+<div class="section-tag">Propriedade Intelectual</div>
+<h2 class="section-title">Nosso portfólio de ativos protegidos</h2>
+<p class="section-desc">A LIGA protege o conhecimento que desenvolve. Ativos disponíveis para consulta e, em alguns casos, para licenciamento.</p>
+<div class="pi-tabs">
+<span class="pi-tab active">Patentes</span>
+<span class="pi-tab">Marcas</span>
+<span class="pi-tab">Softwares</span>
+</div>
+<table class="pi-table">
+<thead><tr><th>Título</th><th>Tipo</th><th>Status</th><th>Área</th><th>Licenciamento</th></tr></thead>
+<tbody>
+<tr><td>Sistema de triagem oncológica assistida</td><td>Patente de invenção</td><td><span class="pi-status pending">Em análise</span></td><td>Oncologia / IA</td><td><span class="pi-license">Disponível</span></td></tr>
+<tr><td>Dispositivo para coleta de dados vitais</td><td>Patente de invenção</td><td><span class="pi-status granted">Concedida</span></td><td>Dispositivos médicos</td><td><span class="pi-license">Disponível</span></td></tr>
+<tr><td>Protocolo de rastreamento digital</td><td>Patente de invenção</td><td><span class="pi-status pending">Depositada</span></td><td>Saúde digital</td><td>Consultar</td></tr>
+<tr><td>Método de análise histopatológica</td><td>Patente de invenção</td><td><span class="pi-status granted">Concedida</span></td><td>Diagnóstico</td><td><span class="pi-license">Disponível</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- NÚMEROS -->
+<section class="numeros">
+<div class="section-inner">
+<div style="text-align:center;margin-bottom:2.5rem">
+<div class="section-tag" style="color:var(--coral)">Impacto</div>
+<h2 class="section-title" style="color:var(--white)">Nosso impacto em números</h2>
+</div>
+<div class="numeros-grid">
+<div class="numero-item"><div class="numero-val">47</div><div class="numero-label">Projetos desenvolvidos</div></div>
+<div class="numero-item"><div class="numero-val">34</div><div class="numero-label">Instituições parceiras ativas</div></div>
+<div class="numero-item"><div class="numero-val">12</div><div class="numero-label">Patentes registradas</div></div>
+<div class="numero-item"><div class="numero-val">8</div><div class="numero-label">Startups incubadas</div></div>
+<div class="numero-item"><div class="numero-val">R$ 4.2M</div><div class="numero-label">Recursos captados</div></div>
+<div class="numero-item"><div class="numero-val">167</div><div class="numero-label">Municípios alcançados</div></div>
+</div>
+</div>
+</section>
+
+<!-- PARCERIAS -->
+<section id="parcerias" class="section-bg">
+<div class="section-inner">
+<div class="section-tag">Rede</div>
+<h2 class="section-title">Parceiros estratégicos</h2>
+<p class="section-desc">Construímos soluções com quem compartilha o compromisso com a inovação em saúde.</p>
+<div class="parceiros-cats">
+<span class="parceiro-cat active">Todos</span>
+<span class="parceiro-cat">Universidades</span>
+<span class="parceiro-cat">Empresas</span>
+<span class="parceiro-cat">Fomento</span>
+<span class="parceiro-cat">Hospitais</span>
+<span class="parceiro-cat">Governo</span>
+</div>
+<div class="parceiros-grid">
+<div class="parceiro-logo"><span>UFRN</span></div>
+<div class="parceiro-logo"><span>FUNPEC</span></div>
+<div class="parceiro-logo"><span>FAPERN</span></div>
+<div class="parceiro-logo"><span>CNPq</span></div>
+<div class="parceiro-logo"><span>EMBRAPII</span></div>
+<div class="parceiro-logo"><span>FINEP</span></div>
+<div class="parceiro-logo"><span>SESAP</span></div>
+<div class="parceiro-logo"><span>UNI-RN</span></div>
+<div class="parceiro-logo"><span>IFRN</span></div>
+<div class="parceiro-logo"><span>SENAI</span></div>
+<div class="parceiro-logo"><span>SEBRAE</span></div>
+<div class="parceiro-logo"><span>COMCIT</span></div>
+</div>
+</div>
+</section>
+
+<!-- NOTÍCIAS E EVENTOS -->
+<section>
+<div class="section-inner">
+<div class="section-tag">Novidades</div>
+<h2 class="section-title">Novidades do NNI</h2>
+<div class="news-grid">
+<div class="news-list">
+<div class="news-card"><div class="news-img"></div><div class="news-content"><span>Inovação · Jun 2026</span><h4>LIGA firma parceria com instituto israelense para pesquisa em radioterapia</h4><p>Acordo prevê intercâmbio de pesquisadores e desenvolvimento conjunto de tecnologias.</p></div></div>
+<div class="news-card"><div class="news-img"></div><div class="news-content"><span>Startups · Mai 2026</span><h4>Incubadora LIGA abre segunda chamada para startups de saúde digital</h4><p>Edital contempla até seis empresas de base tecnológica com foco em oncologia.</p></div></div>
+<div class="news-card"><div class="news-img"></div><div class="news-content"><span>Propriedade Intelectual · Abr 2026</span><h4>LIGA obtém concessão de patente para sistema de triagem assistida</h4><p>Tecnologia desenvolvida em parceria com a UFRN recebe proteção do INPI.</p></div></div>
+</div>
+<div>
+<h3 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:1rem">Próximos eventos</h3>
+<div class="events-list">
+<div class="event-card"><div class="event-date">15 JUL 2026</div><h5>Pitch Day — Incubadora LIGA</h5><span>Presencial <span class="event-badge">Inscrições abertas</span></span></div>
+<div class="event-card"><div class="event-date">22 AGO 2026</div><h5>Workshop: PI para pesquisadores</h5><span>Híbrido</span></div>
+<div class="event-card"><div class="event-date">10 SET 2026</div><h5>Seminário de Inovação em Oncologia</h5><span>Presencial</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contato">
+<div class="section-inner">
+<div style="text-align:center">
+<div class="section-tag" style="color:var(--coral)">Participe</div>
+<h2 class="section-title" style="color:var(--white)">Faça parte do ecossistema de inovação da LIGA</h2>
+<p style="color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;font-size:.95rem">Escolha o caminho que faz mais sentido para você.</p>
+</div>
+<div class="cta-grid">
+<div class="cta-card">
+<div class="cta-icon">📄</div>
+<h4>Submeta seu projeto</h4>
+<p>Tem uma ideia, pesquisa ou tecnologia com potencial de impacto em saúde? Submeta e nossa equipe fará uma avaliação inicial.</p>
+<a href="#" class="cta-btn">Submeter projeto →</a>
+</div>
+<div class="cta-card">
+<div class="cta-icon">🚀</div>
+<h4>Apresente sua startup</h4>
+<p>Sua startup atua em saúde e busca ambiente de validação, mentoria e conexão? Apresente-se à Incubadora LIGA.</p>
+<a href="#" class="cta-btn">Apresentar startup →</a>
+</div>
+<div class="cta-card">
+<div class="cta-icon">💬</div>
+<h4>Fale com o NNI</h4>
+<p>Dúvidas sobre parcerias, licenciamento, programas ou qualquer outro assunto? Nossa equipe está disponível.</p>
+<a href="#" class="cta-btn">Fale conosco →</a>
+</div>
+</div>
+<p class="cta-footer">Todos os contatos são avaliados pela equipe do NNI. Retorno em até cinco dias úteis.</p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="section-inner">
+<img src="data:image/png;base64,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" alt="LIGA" style="height:28px;margin:0 auto 1rem;opacity:.4">
+<p>Liga Norte Riograndense Contra o Câncer — Núcleo de Novos Negócios e Inovação</p>
+<p style="margin-top:.3rem">Natal, Rio Grande do Norte, Brasil</p>
+</div>
+</footer>
+
+</body>
+</html>
