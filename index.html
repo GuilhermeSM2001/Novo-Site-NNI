@@ -441,19 +441,20 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
 .res-tags span{font-family:'Poppins';font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);color:#fff}
 
 /* ---- DNA ecossistema ---- */
-.dna-wrap{position:relative;width:100%;max-width:520px;margin-inline:auto;aspect-ratio:100/125;overflow:visible}
+.dna-wrap{position:relative;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:100/118;overflow:visible}
 .dna-wrap svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.dna-strand{fill:none;stroke-width:2.2;stroke-linecap:round}
-.dna-rung{stroke:rgba(255,255,255,.22);stroke-width:1.4}
-.dna-node{transition:transform .4s var(--ease)}
-.dna-lbl{position:absolute;transform:translate(-50%,-50%);width:120px;pointer-events:none}
-.dna-lbl b{font-family:'Poppins';font-weight:600;font-size:clamp(.72rem,1.5vw,.92rem);color:#fff;display:block;line-height:1.08}
-.dna-lbl small{font-size:.6rem;color:rgba(255,255,255,.62);display:block;margin-top:1px}
-.dna-nni{position:absolute;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
-.dna-nni b{font-family:'Poppins';font-weight:700;font-size:clamp(1rem,2.2vw,1.5rem);color:#fff;display:block;line-height:1}
-.dna-nni small{font-size:.6rem;color:rgba(255,255,255,.85);display:block;margin-top:3px}
-@keyframes pulse{0%,100%{opacity:.85}50%{opacity:1}}
-@keyframes shim{0%,100%{opacity:.14}50%{opacity:.4}}
+.rna-back{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.rna-lead{stroke:rgba(255,255,255,.28);stroke-width:.5;stroke-dasharray:1.6 1.6}
+.rna-axis{stroke:rgba(255,255,255,.16);stroke-width:.7;stroke-dasharray:2 3}
+/* rótulos em colunas fixas — nunca colidem com a hélice */
+.dna-lbl{position:absolute;transform:translateY(-50%);width:29%;pointer-events:none;transition:opacity .3s}
+.dna-lbl.l{right:71%;text-align:right}
+.dna-lbl.r{left:71%;text-align:left}
+.dna-lbl b{font-family:'Poppins';font-weight:600;font-size:clamp(.7rem,1.35vw,.9rem);color:#fff;display:block;line-height:1.12}
+.dna-lbl small{font-size:.6rem;color:rgba(255,255,255,.6);display:block;margin-top:2px;line-height:1.2}
+.dna-nni{position:absolute;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:3}
+.dna-nni b{font-family:'Poppins';font-weight:700;font-size:clamp(1rem,2.2vw,1.45rem);color:#fff;display:block;line-height:1}
+.dna-nni small{font-size:.58rem;color:rgba(255,255,255,.85);display:block;margin-top:3px}
 
 /* ---- Incubação (2 hubs) ---- */
 .hubs{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
@@ -620,8 +621,8 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
     <div>
       <div class="head" data-rev data-d="1">
         <div class="eyebrow on-dark">Ecossistema de inovação</div>
-        <h2>O NNI é o elo de uma hélice viva.</h2>
-        <p class="lead">Assim como o DNA guarda o código da vida, o NNI conecta os fios que sustentam a inovação da LIGA. No centro, integramos — ao redor, giram os polos que só geram valor quando trabalham juntos: assistência, tecnologia, ciência, parcerias, inovação aberta, gestão e a formação do próprio ecossistema.</p>
+        <h2>O NNI é o eixo de uma hélice viva.</h2>
+        <p class="lead">Como uma fita de RNA, que carrega a mensagem capaz de virar matéria viva, o NNI traduz o conhecimento da LIGA em soluções concretas. No eixo, integramos — presos a ele, giram os polos que só geram valor quando trabalham juntos: assistência, tecnologia, ciência aplicada, parcerias, inovação aberta, gestão e a formação do próprio ecossistema.</p>
       </div>
       <ul class="eco-list" data-rev data-d="2">
         <li><span class="dot"></span><div><b>Do cuidado ao código</b><p>Transformamos desafios clínicos reais em tecnologia protegida e transferível.</p></div></li>
@@ -1076,36 +1077,155 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
 (function(){
   var wrap=document.getElementById('dna'); if(!wrap) return;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W=100,H=125,cx=50,amp=20,turns=4,y0=8,y1=117,N=64;
-  var sx1=function(t){return cx+amp*Math.sin(t*Math.PI*2*turns);};
-  var sx2=function(t){return cx-amp*Math.sin(t*Math.PI*2*turns);};
-  var yy=function(t){return y0+(y1-y0)*t;};
-  var p1='',p2='';
-  for(var i=0;i<=N;i++){var t=i/N;p1+=(i?'L':'M')+sx1(t).toFixed(2)+' '+yy(t).toFixed(2)+' ';p2+=(i?'L':'M')+sx2(t).toFixed(2)+' '+yy(t).toFixed(2)+' ';}
-  var rungs='';
-  for(i=2;i<N;i+=4){var tt=i/N;rungs+='<line class="dna-rung" x1="'+sx1(tt).toFixed(2)+'" y1="'+yy(tt).toFixed(2)+'" x2="'+sx2(tt).toFixed(2)+'" y2="'+yy(tt).toFixed(2)+'"'+(reduce?'':' style="animation:shim 3.2s ease-in-out infinite;animation-delay:'+(i*0.05).toFixed(2)+'s"')+'/>';}
+
+  // ---- geometria da fita de RNA (fita simples) ----
+  var W=100, H=118, cx=50, A=17, TURNS=3.2, y0=9, y1=109, SEG=110;
+  var yOf=function(t){return y0+(y1-y0)*t;};
+  var angOf=function(t,ph){return t*Math.PI*2*TURNS + ph;};
+
+  // 7 polos = as "bases" presas ao eixo
   var poles=[
-    {t:.0625,l:'Assistência',s:'cuidado clínico'},
-    {t:.1875,l:'Tecnologia',s:'dado e sistemas'},
-    {t:.3125,l:'Ciência Aplicada',s:'pesquisa que vira produto'},
-    {t:.4375,l:'Parcerias',s:'rede institucional'},
-    {t:.6875,l:'Inovação Aberta',s:'co-criação externa'},
-    {t:.8125,l:'Gestão',s:'processos e valor'},
-    {t:.9375,l:'Ecossistema',s:'conexões que crescem'}
+    {t:.045,l:'Assistência',s:'o cuidado clínico',side:'r'},
+    {t:.185,l:'Tecnologia',s:'dado e sistemas',side:'l'},
+    {t:.325,l:'Ciência Aplicada',s:'pesquisa que vira produto',side:'r'},
+    {t:.465,l:'Parcerias',s:'rede institucional',side:'l'},
+    {t:.605,l:'Inovação Aberta',s:'co-criação externa',side:'r'},
+    {t:.745,l:'Gestão',s:'processos e valor',side:'l'},
+    {t:.925,l:'Ecossistema',s:'conexões que crescem',side:'r'}
   ];
-  var nodes='',labels='';
-  poles.forEach(function(p,k){
-    var x=sx1(p.t),y=yy(p.t),right=x>cx;
-    nodes+='<circle class="dna-node" cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="3.4" fill="#fff" stroke="#F2957D" stroke-width="1.4"'+(reduce?'':' style="animation:pulse 3s ease-in-out infinite;animation-delay:'+(k*0.22).toFixed(2)+'s"')+'/>';
-    labels+='<div class="dna-lbl" style="left:'+(right?86:14)+'%;top:'+(y/H*100).toFixed(1)+'%;text-align:'+(right?'left':'right')+'"><b>'+p.l+'</b><small>'+p.s+'</small></div>';
+
+  // ---- monta o SVG uma vez ----
+  var svgns='http://www.w3.org/2000/svg';
+  var svg=document.createElementNS(svgns,'svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  svg.setAttribute('preserveAspectRatio','xMidYMid meet');
+
+  var gBack=document.createElementNS(svgns,'g');   // metade de trás
+  var gAxis=document.createElementNS(svgns,'g');   // eixo + NNI
+  var gFront=document.createElementNS(svgns,'g');  // metade da frente
+  svg.appendChild(gBack); svg.appendChild(gAxis); svg.appendChild(gFront);
+
+  // eixo central tracejado
+  var axis=document.createElementNS(svgns,'line');
+  axis.setAttribute('class','rna-axis');
+  axis.setAttribute('x1',cx); axis.setAttribute('y1',y0);
+  axis.setAttribute('x2',cx); axis.setAttribute('y2',y1);
+  gAxis.appendChild(axis);
+
+  // núcleo NNI
+  var nniY=yOf(.5);
+  var halo=document.createElementNS(svgns,'circle');
+  halo.setAttribute('cx',cx); halo.setAttribute('cy',nniY); halo.setAttribute('r',13);
+  halo.setAttribute('fill','rgba(231,103,77,.18)');
+  var core=document.createElementNS(svgns,'circle');
+  core.setAttribute('cx',cx); core.setAttribute('cy',nniY); core.setAttribute('r',10.5);
+  core.setAttribute('fill','#E7674D');
+  core.setAttribute('style','filter:drop-shadow(0 3px 10px rgba(231,103,77,.6))');
+  var ring=document.createElementNS(svgns,'circle');
+  ring.setAttribute('cx',cx); ring.setAttribute('cy',nniY); ring.setAttribute('r',10.5);
+  ring.setAttribute('fill','none'); ring.setAttribute('stroke','rgba(255,255,255,.45)'); ring.setAttribute('stroke-width','.8');
+  gAxis.appendChild(halo); gAxis.appendChild(core); gAxis.appendChild(ring);
+
+  // segmentos da fita (cada um recebe profundidade própria)
+  var segs=[];
+  for(var i=0;i<SEG;i++){
+    var ln=document.createElementNS(svgns,'path');
+    ln.setAttribute('class','rna-back');
+    segs.push(ln);
+  }
+
+  // bases: conector (eixo->nó), nó, linha-guia até o rótulo
+  var bases=poles.map(function(p,k){
+    var conn=document.createElementNS(svgns,'line');
+    conn.setAttribute('stroke-linecap','round');
+    var dot=document.createElementNS(svgns,'circle');
+    var lead=document.createElementNS(svgns,'line');
+    lead.setAttribute('class','rna-lead');
+    var lbl=document.createElement('div');
+    lbl.className='dna-lbl '+p.side;
+    lbl.style.top=(yOf(p.t)/H*100).toFixed(2)+'%';
+    lbl.innerHTML='<b>'+p.l+'</b><small>'+p.s+'</small>';
+    wrap.appendChild(lbl);
+    return {p:p,conn:conn,dot:dot,lead:lead,lbl:lbl};
   });
-  var ny=yy(.5);
-  var center='<circle cx="'+cx+'" cy="'+ny.toFixed(2)+'" r="10" fill="#E7674D" style="filter:drop-shadow(0 3px 10px rgba(231,103,77,.55))"/><circle cx="'+cx+'" cy="'+ny.toFixed(2)+'" r="10" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>';
-  wrap.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet">'+rungs
-    +'<path class="dna-strand" d="'+p2+'" stroke="rgba(255,255,255,.5)"/>'
-    +'<path class="dna-strand" d="'+p1+'" stroke="#F2957D"/>'
-    +nodes+center+'</svg>'+labels
-    +'<div class="dna-nni" style="left:50%;top:'+(ny/H*100).toFixed(1)+'%"><b>NNI</b><small>elo integrador</small></div>';
+
+  wrap.insertBefore(svg,wrap.firstChild);
+  var nni=document.createElement('div');
+  nni.className='dna-nni';
+  nni.style.left='50%'; nni.style.top=(nniY/H*100).toFixed(2)+'%';
+  nni.innerHTML='<b>NNI</b><small>elo integrador</small>';
+  wrap.appendChild(nni);
+
+  // ---- render por quadro ----
+  function render(ph){
+    // limpa os grupos de profundidade
+    while(gBack.firstChild) gBack.removeChild(gBack.firstChild);
+    while(gFront.firstChild) gFront.removeChild(gFront.firstChild);
+
+    // fita: segmento a segmento, com z definindo brilho/espessura
+    for(var i=0;i<SEG;i++){
+      var t1=i/SEG, t2=(i+1)/SEG;
+      var a1=angOf(t1,ph), a2=angOf(t2,ph);
+      var x1=cx+A*Math.sin(a1), x2=cx+A*Math.sin(a2);
+      var z=(Math.cos(a1)+Math.cos(a2))/2;          // -1 (fundo) .. 1 (frente)
+      var d=(z+1)/2;                                // 0..1
+      var el=segs[i];
+      el.setAttribute('d','M'+x1.toFixed(2)+' '+yOf(t1).toFixed(2)+'L'+x2.toFixed(2)+' '+yOf(t2).toFixed(2));
+      el.setAttribute('stroke','#E7674D');
+      el.setAttribute('stroke-width',(1.6+2.4*d).toFixed(2));
+      el.setAttribute('opacity',(0.30+0.70*d).toFixed(2));
+      (z>0?gFront:gBack).appendChild(el);
+    }
+
+    // bases
+    bases.forEach(function(b){
+      var a=angOf(b.p.t,ph);
+      var x=cx+A*Math.sin(a), y=yOf(b.p.t), z=Math.cos(a), d=(z+1)/2;
+      var r=(2.6+1.9*d);
+      b.conn.setAttribute('x1',cx); b.conn.setAttribute('y1',y);
+      b.conn.setAttribute('x2',x.toFixed(2)); b.conn.setAttribute('y2',y);
+      b.conn.setAttribute('stroke','rgba(255,255,255,'+(0.14+0.36*d).toFixed(2)+')');
+      b.conn.setAttribute('stroke-width',(0.7+0.9*d).toFixed(2));
+
+      b.dot.setAttribute('cx',x.toFixed(2)); b.dot.setAttribute('cy',y);
+      b.dot.setAttribute('r',r.toFixed(2));
+      b.dot.setAttribute('fill','#fff');
+      b.dot.setAttribute('stroke','#E7674D');
+      b.dot.setAttribute('stroke-width',(0.8+0.8*d).toFixed(2));
+      b.dot.setAttribute('opacity',(0.45+0.55*d).toFixed(2));
+
+      // guia do nó até a coluna do rótulo
+      var lx=(b.p.side==='r')?70:30;
+      b.lead.setAttribute('x1',x.toFixed(2)); b.lead.setAttribute('y1',y);
+      b.lead.setAttribute('x2',lx); b.lead.setAttribute('y2',y);
+      b.lead.setAttribute('opacity',(0.25+0.45*d).toFixed(2));
+
+      b.lbl.style.opacity=(0.55+0.45*d).toFixed(2);
+
+      var g=(z>0?gFront:gBack);
+      g.appendChild(b.lead); g.appendChild(b.conn); g.appendChild(b.dot);
+    });
+  }
+
+  if(reduce){ render(0.6); return; }
+
+  var ph=0, last=0, running=false;
+  function loop(ts){
+    if(!last) last=ts;
+    var dt=Math.min((ts-last)/1000,.05); last=ts;
+    ph += dt*0.55;              // velocidade do giro
+    render(ph);
+    if(running) requestAnimationFrame(loop);
+  }
+  // só gira quando visível (poupa bateria/CPU)
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !running){ running=true; last=0; requestAnimationFrame(loop); }
+      else if(!e.isIntersecting){ running=false; }
+    });
+  },{threshold:.05});
+  io.observe(wrap);
+  render(0);
 })();
 </script>
 </body>
