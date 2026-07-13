@@ -197,10 +197,11 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
 .card{background:#fff;border:1px solid var(--linha);border-radius:var(--r);padding:30px 28px;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;position:relative;overflow:hidden}
 .card:hover{transform:translateY(-7px);box-shadow:var(--sombra);border-color:transparent}
 .card:hover .cico{transform:rotate(-6deg) scale(1.07)}
-.cico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin-bottom:20px;transition:transform .4s var(--ease)}
-.cico svg{width:26px;height:26px}
-.cico.c{background:var(--coral-wash);color:var(--coral)}
-.cico.t{background:var(--teal-wash);color:var(--teal)}
+.cico{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(160deg,#fff,var(--creme2));border:1px solid var(--linha);
+  box-shadow:0 10px 20px -12px rgba(120,60,45,.28);transition:transform .45s var(--ease),box-shadow .45s}
+.cico svg{width:40px;height:40px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.card:hover .cico,.door:hover .cico{transform:translateY(-3px) rotate(-6deg) scale(1.07);box-shadow:0 18px 28px -12px rgba(120,60,45,.4)}
 .card h3{font-size:1.2rem;margin-bottom:8px}
 .card p{font-size:.92rem;color:var(--grafite2)}
 
@@ -259,34 +260,40 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
 .su.vazio .lg{background:var(--creme2);color:var(--grafite2);font-size:1.7rem}
 
 /* ---- Prateleira PI ---- */
-.shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+/* ---- Propriedade intelectual (vitrine com filtros) ---- */
+.pi-bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.pi-tab{display:inline-flex;align-items:center;gap:9px;padding:10px 16px 10px 11px;border-radius:100px;cursor:pointer;
+  background:#fff;border:1.5px solid var(--linha);font-family:'Figtree';font-weight:600;font-size:.92rem;color:var(--grafite);
+  transition:transform .3s var(--ease),border-color .3s,box-shadow .3s,background .3s}
+.pi-tab .pi-e{width:26px;height:26px;flex:none;display:grid;place-items:center}
+.pi-tab .pi-e svg{width:24px;height:24px}
+.pi-tab b{font-family:'Poppins';font-size:.74rem;font-weight:700;background:var(--creme2);color:var(--grafite2);
+  padding:2px 7px;border-radius:100px;transition:background .3s,color .3s}
+.pi-tab:hover{transform:translateY(-2px);border-color:var(--coral-cla);box-shadow:var(--sombra-s)}
+.pi-tab.is-on{background:var(--coral);border-color:var(--coral);color:#fff;box-shadow:0 12px 24px -12px rgba(231,103,77,.7)}
+.pi-tab.is-on b{background:rgba(255,255,255,.25);color:#fff}
 
-/* ---- PI: resumo e categorias ---- */
-.pi-sum{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
-.pi-s{flex:1;min-width:150px;background:#fff;border:1px solid var(--linha);border-radius:var(--r-sm);padding:20px 22px;display:flex;align-items:baseline;gap:12px}
-.pi-s b{font-family:'Poppins';font-weight:700;font-size:2rem;line-height:1;color:var(--coral)}
-.pi-s span{font-size:.86rem;color:var(--grafite2);font-weight:600}
-.pi-cat{display:flex;align-items:center;gap:11px;font-size:1.05rem;margin-top:44px;font-family:'Poppins';font-weight:600;color:var(--grafite)}
-.pi-ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none}
-.pi-ico svg{width:18px;height:18px}
-.pi-ico.c{background:var(--coral-wash);color:var(--coral)}
-.pi-ico.t{background:var(--teal-wash);color:var(--teal)}
-.ip-wide{grid-column:span 2}
-.ip-vazio{border-style:dashed;background:transparent;display:grid;place-content:center;text-align:center}
-.ip-vazio h4{margin:0}
-.ip-vazio p{margin-top:6px;text-align:center}
-@media(max-width:960px){.ip-wide{grid-column:span 2}}
-@media(max-width:560px){.ip-wide{grid-column:span 1}.pi-s{min-width:100%}}
-.ip{background:#fff;border:1px solid var(--linha);border-radius:var(--r-sm);padding:24px;transition:transform .35s var(--ease),box-shadow .35s}
-.ip:hover{transform:translateY(-5px);box-shadow:var(--sombra-s)}
-.ip .t{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite2);font-weight:700;font-family:'Poppins'}
-.ip h4{font-size:1.18rem;margin:10px 0 7px}
-.ip p{font-size:.86rem;color:var(--grafite2)}
-.ip .st{margin-top:15px;display:inline-flex;align-items:center;gap:7px;font-size:.76rem;font-weight:700;padding:5px 11px;border-radius:100px}
-.ip .st .d{width:7px;height:7px;border-radius:50%}
+.pi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+.pi-card{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--linha);border-radius:var(--r);
+  padding:16px 20px;min-height:92px;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s,opacity .35s}
+.pi-card:hover{transform:translateY(-5px);box-shadow:var(--sombra);border-color:transparent}
+.pi-card:hover .pi-ic{transform:rotate(-8deg) scale(1.1)}
+.pi-ic{width:56px;height:56px;flex:none;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(160deg,#fff,var(--creme2));border:1px solid var(--linha);transition:transform .45s var(--ease)}
+.pi-ic svg{width:36px;height:36px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.pi-txt{flex:1;min-width:0;display:flex;align-items:center}
+.pi-card h4{font-size:1.04rem;line-height:1.3;margin:0}
+.pi-destaque{grid-column:span 2;background:linear-gradient(120deg,#fff,var(--coral-wash));border-color:var(--coral-cla)}
+.pi-card.oculto{display:none}
+.pi-card.entra{animation:piIn .45s var(--ease) both}
+@keyframes piIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.st{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:100px;flex:none;white-space:nowrap}
+.st .d{width:7px;height:7px;border-radius:50%}
 .st-reg{background:var(--teal-wash);color:var(--teal-esc)}.st-reg .d{background:var(--teal)}
-.st-ana{background:var(--coral-wash);color:var(--coral-esc)}.st-ana .d{background:var(--coral)}
-.st-dep{background:var(--creme2);color:var(--grafite2)}.st-dep .d{background:var(--grafite2)}
+.st-pat{background:#FFF3D6;color:#8A6410}.st-pat .d{background:#EFA724}
+.st-sw{background:var(--roxo-wash);color:#5D4477}.st-sw .d{background:var(--roxo)}
+@media(max-width:820px){.pi-grid{grid-template-columns:1fr}.pi-destaque{grid-column:span 1}
+  .pi-card{flex-wrap:wrap}.pi-txt{flex:1 1 100%;order:2}.pi-card .st{order:3}}
 
 /* ---- Transferência ---- */
 .tt{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
@@ -511,6 +518,115 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
 </head>
 <body>
 
+<svg id="icons" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+<defs>
+  <linearGradient id="gCoral" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5906F"/><stop offset="1" stop-color="#D8503C"/></linearGradient>
+  <linearGradient id="gTeal"  x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#79ABB2"/><stop offset="1" stop-color="#3D6D75"/></linearGradient>
+  <linearGradient id="gRoxo"  x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A98CC4"/><stop offset="1" stop-color="#6B4C8A"/></linearGradient>
+  <linearGradient id="gGold"  x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD466"/><stop offset="1" stop-color="#EFA724"/></linearGradient>
+  <linearGradient id="gSky"   x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD5E8"/><stop offset="1" stop-color="#4FA3C4"/></linearGradient>
+</defs>
+
+<!-- FOGUETE · incubação -->
+<symbol id="ic-rocket" viewBox="0 0 64 64">
+  <path d="M32 4c9 7 13 17 13 27v9H19v-9C19 21 23 11 32 4Z" fill="#fff" stroke="#D9DEE3" stroke-width="2"/>
+  <path d="M32 4c9 7 13 17 13 27v3H32V4Z" fill="#F2F5F7"/>
+  <circle cx="32" cy="24" r="6" fill="url(#gSky)" stroke="#3E88A8" stroke-width="2"/>
+  <path d="M19 32 8 44l11-2v-10ZM45 32l11 12-11-2V32Z" fill="url(#gCoral)"/>
+  <path d="M26 40h12l-3 10a3 3 0 0 1-6 0l-3-10Z" fill="url(#gGold)"/>
+  <path d="M29 50c0 4 3 8 3 8s3-4 3-8" fill="#F5906F"/>
+</symbol>
+
+<!-- SELO ® · propriedade intelectual / marcas -->
+<symbol id="ic-brand" viewBox="0 0 64 64">
+  <path d="M32 5 54 13v18c0 14-9 24-22 28C19 55 10 45 10 31V13L32 5Z" fill="url(#gCoral)"/>
+  <path d="M32 5 54 13v18c0 14-9 24-22 28V5Z" fill="#000" opacity=".07"/>
+  <circle cx="32" cy="31" r="13" fill="#fff" opacity=".95"/>
+  <text x="32" y="38" font-family="Poppins,sans-serif" font-size="19" font-weight="700" fill="#D8503C" text-anchor="middle">®</text>
+</symbol>
+
+<!-- LÂMPADA · patente -->
+<symbol id="ic-bulb" viewBox="0 0 64 64">
+  <circle cx="32" cy="26" r="18" fill="url(#gGold)"/>
+  <path d="M32 8a18 18 0 0 0-9 33.6V46h18v-4.4A18 18 0 0 0 32 8Z" fill="url(#gGold)"/>
+  <path d="M25 41.6V46h14v-4.4A18 18 0 0 0 32 8v34h-7Z" fill="#000" opacity=".06"/>
+  <path d="M26 19a9 9 0 0 1 8-4" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/>
+  <rect x="24" y="46" width="16" height="5" rx="2.5" fill="#B9C2CC"/>
+  <rect x="24" y="52" width="16" height="5" rx="2.5" fill="#94A0AC"/>
+  <path d="M28 57h8" stroke="#7A8794" stroke-width="3" stroke-linecap="round"/>
+</symbol>
+
+<!-- NOTEBOOK · software -->
+<symbol id="ic-laptop" viewBox="0 0 64 64">
+  <rect x="11" y="12" width="42" height="29" rx="4" fill="url(#gTeal)"/>
+  <rect x="15" y="16" width="34" height="21" rx="2" fill="#16242B"/>
+  <path d="M22 22l-4 4 4 4M42 22l4 4-4 4M36 21l-8 14" stroke="#8FE3C9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M6 46h52l-3 6a3 3 0 0 1-2.7 1.7H11.7A3 3 0 0 1 9 52l-3-6Z" fill="#CBD4DB"/>
+  <rect x="26" y="46" width="12" height="3" rx="1.5" fill="#A7B3BD"/>
+</symbol>
+
+<!-- TROCA · transferência de tecnologia -->
+<symbol id="ic-swap" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="26" fill="url(#gTeal)" opacity=".18"/>
+  <path d="M16 24h26l-7-7" stroke="url(#gCoral)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M48 40H22l7 7" stroke="url(#gTeal)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</symbol>
+
+<!-- CAPELO · residência / formação -->
+<symbol id="ic-cap" viewBox="0 0 64 64">
+  <path d="M32 12 58 24 32 36 6 24 32 12Z" fill="url(#gRoxo)"/>
+  <path d="M32 12 58 24 32 36V12Z" fill="#000" opacity=".08"/>
+  <path d="M16 30v11c0 5 7 9 16 9s16-4 16-9V30l-16 7-16-7Z" fill="#8563A3"/>
+  <path d="M56 25v14" stroke="#EFA724" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="56" cy="42" r="4" fill="url(#gGold)"/>
+</symbol>
+
+<!-- MOEDAS · captação e fomento -->
+<symbol id="ic-coins" viewBox="0 0 64 64">
+  <ellipse cx="32" cy="46" rx="20" ry="8" fill="#D89A18"/>
+  <rect x="12" y="34" width="40" height="12" fill="url(#gGold)"/>
+  <ellipse cx="32" cy="34" rx="20" ry="8" fill="#FFD466"/>
+  <ellipse cx="32" cy="34" rx="12" ry="4.6" fill="#F0B93B" opacity=".7"/>
+  <ellipse cx="32" cy="22" rx="20" ry="8" fill="#FFDF8C"/>
+  <path d="M12 22v10M52 22v10" stroke="#D89A18" stroke-width="2"/>
+  <path d="M32 16v12M28 19h6a2.5 2.5 0 0 1 0 5h-4a2.5 2.5 0 0 0 0 5h6" stroke="#B87F12" stroke-width="2" fill="none" stroke-linecap="round"/>
+</symbol>
+
+<!-- GRÁFICO · inteligência de mercado -->
+<symbol id="ic-chart" viewBox="0 0 64 64">
+  <rect x="8" y="10" width="48" height="44" rx="6" fill="#fff" stroke="#D9DEE3" stroke-width="2"/>
+  <rect x="16" y="34" width="7" height="13" rx="2" fill="url(#gSky)"/>
+  <rect x="27" y="27" width="7" height="20" rx="2" fill="url(#gTeal)"/>
+  <rect x="38" y="19" width="7" height="28" rx="2" fill="url(#gCoral)"/>
+  <path d="M16 26l9-8 8 6 12-11" stroke="#D8503C" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="45" cy="13" r="3" fill="#D8503C"/>
+</symbol>
+
+<!-- BALÃO · fale conosco -->
+<symbol id="ic-chat" viewBox="0 0 64 64">
+  <path d="M32 10c13.8 0 25 8.5 25 19s-11.2 19-25 19c-2.6 0-5.1-.3-7.4-.9L11 54l3.4-9.6C10.4 41 7 36 7 29 7 18.5 18.2 10 32 10Z" fill="url(#gCoral)"/>
+  <circle cx="22" cy="29" r="3.2" fill="#fff"/><circle cx="32" cy="29" r="3.2" fill="#fff"/><circle cx="42" cy="29" r="3.2" fill="#fff"/>
+</symbol>
+
+<!-- PASTA/ENVIO · submeta seu projeto -->
+<symbol id="ic-send" viewBox="0 0 64 64">
+  <path d="M8 16h20l5 6h23a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4Z" fill="url(#gTeal)"/>
+  <path d="M4 30h56v20a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V30Z" fill="#79ABB2" opacity=".55"/>
+  <circle cx="32" cy="40" r="11" fill="#fff"/>
+  <path d="M32 46V34m0 0-5 5m5-5 5 5" stroke="#D8503C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</symbol>
+
+<!-- REDE · ecossistema / parcerias -->
+<symbol id="ic-net" viewBox="0 0 64 64">
+  <path d="M32 32 14 16M32 32l18-16M32 32 14 48M32 32l18 16" stroke="#B9C2CC" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="10" fill="url(#gCoral)"/>
+  <circle cx="14" cy="16" r="6" fill="url(#gTeal)"/>
+  <circle cx="50" cy="16" r="6" fill="url(#gRoxo)"/>
+  <circle cx="14" cy="48" r="6" fill="url(#gGold)"/>
+  <circle cx="50" cy="48" r="6" fill="url(#gSky)"/>
+</symbol>
+</svg>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap">
@@ -604,12 +720,12 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
       <h2>Tudo o que colocamos em movimento.</h2>
     </div>
     <div class="cards">
-      <article class="card" data-rev data-d="1"><div class="cico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg></div><h3>Incubação de startups</h3><p>Ambiente, mentoria e estrutura para transformar ideias e tecnologias em negócios de saúde — na SeriHub (Seridó) e em Natal (CECAN).</p></article>
-      <article class="card" data-rev data-d="2"><div class="cico t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4Z"/></svg></div><h3>Propriedade intelectual</h3><p>Busca de anterioridade, registro de marcas, software e patentes. Uma carteira de ativos protegida e monetizável.</p></article>
-      <article class="card" data-rev data-d="3"><div class="cico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 7l4-4M4 7l4 4M20 17H9M20 17l-4-4M20 17l-4 4"/></svg></div><h3>Transferência de tecnologia</h3><p>Levamos ao mercado o que é desenvolvido dentro da instituição, por licenciamento ou parceria.</p></article>
-      <article class="card" data-rev data-d="1"><div class="cico t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8M9 4v3l-4 9a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4l-4-9V4M7 16h10"/></svg></div><h3>Residência em TI na Saúde</h3><p>Formação prática de talentos em tecnologia aplicada ao contexto hospitalar e oncológico.</p></article>
-      <article class="card" data-rev data-d="2"><div class="cico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 2v20M2 12h20"/></svg></div><h3>Captação e fomento</h3><p>Estruturação de projetos de P&amp;D&amp;I e acesso a editais e recursos de agências de fomento.</p></article>
-      <article class="card" data-rev data-d="3"><div class="cico t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div><h3>Inteligência de mercado</h3><p>Estudos de viabilidade e análise de dados para embasar decisões estratégicas com segurança.</p></article>
+      <article class="card" data-rev data-d="1"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-rocket"/></svg></div><h3>Incubação de startups</h3><p>Ambiente, mentoria e estrutura para transformar ideias e tecnologias em negócios de saúde — na SeriHub (Seridó) e em Natal (CECAN).</p></article>
+      <article class="card" data-rev data-d="2"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-brand"/></svg></div><h3>Propriedade intelectual</h3><p>Busca de anterioridade, registro de marcas, software e patentes. Uma carteira de ativos protegida e monetizável.</p></article>
+      <article class="card" data-rev data-d="3"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-swap"/></svg></div><h3>Transferência de tecnologia</h3><p>Levamos ao mercado o que é desenvolvido dentro da instituição, por licenciamento ou parceria.</p></article>
+      <article class="card" data-rev data-d="1"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-cap"/></svg></div><h3>Residência em TI na Saúde</h3><p>Formação prática de talentos em tecnologia aplicada ao contexto hospitalar e oncológico.</p></article>
+      <article class="card" data-rev data-d="2"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-coins"/></svg></div><h3>Captação e fomento</h3><p>Estruturação de projetos de P&amp;D&amp;I e acesso a editais e recursos de agências de fomento.</p></article>
+      <article class="card" data-rev data-d="3"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-chart"/></svg></div><h3>Inteligência de mercado</h3><p>Estudos de viabilidade e análise de dados para embasar decisões estratégicas com segurança.</p></article>
     </div>
   </div>
 </section>
@@ -625,7 +741,7 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
         <p class="lead">Como uma fita de RNA, que carrega a mensagem capaz de virar matéria viva, o NNI traduz o conhecimento da LIGA em soluções concretas. No eixo, integramos — presos a ele, giram os polos que só geram valor quando trabalham juntos: assistência, tecnologia, ciência aplicada, parcerias, inovação aberta, gestão e a formação do próprio ecossistema.</p>
       </div>
       <ul class="eco-list" data-rev data-d="2">
-        <li><span class="dot"></span><div><b>Do cuidado ao código</b><p>Transformamos desafios clínicos reais em tecnologia protegida e transferível.</p></div></li>
+        <li><span class="dot"></span><div><b>Do cuidado à inovação</b><p>Transformamos desafios clínicos reais em tecnologia protegida e transferível.</p></div></li>
         <li><span class="dot"></span><div><b>Ciência que vira produto</b><p>Aproximamos pesquisa, mercado e parceiros num só movimento.</p></div></li>
         <li><span class="dot"></span><div><b>Inteligência transversal</b><p>Conectamos o que nenhuma área produziria isolada.</p></div></li>
       </ul>
@@ -745,34 +861,57 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
     <div class="head" data-rev>
       <div class="eyebrow">Propriedade intelectual</div>
       <h2>Nossa prateleira de ativos protegidos.</h2>
-      <p class="lead">Poucas instituições de saúde expõem publicamente o que protegem. Aqui, a carteira de PI é vitrine — sinal de maturidade e de tecnologia pronta para transferir.</p>
+      <p class="lead">Poucas instituições de saúde expõem o que protegem. Aqui, a carteira de PI é vitrine — sinal de maturidade e de tecnologia pronta para transferir.</p>
     </div>
 
-    <div class="pi-sum" data-rev data-d="1">
-      <div class="pi-s"><b>2</b><span>Marcas registradas</span></div>
-      <div class="pi-s"><b>1</b><span>Patente</span></div>
-      <div class="pi-s"><b>5</b><span>Softwares</span></div>
+    <div class="pi-bar" data-rev data-d="1" role="tablist">
+      <button class="pi-tab is-on" data-filtro="tudo"><span class="pi-e"><svg viewBox="0 0 64 64"><use href="#ic-net"/></svg></span>Todos<b>8</b></button>
+      <button class="pi-tab" data-filtro="marca"><span class="pi-e"><svg viewBox="0 0 64 64"><use href="#ic-brand"/></svg></span>Marcas<b>2</b></button>
+      <button class="pi-tab" data-filtro="patente"><span class="pi-e"><svg viewBox="0 0 64 64"><use href="#ic-bulb"/></svg></span>Patente<b>1</b></button>
+      <button class="pi-tab" data-filtro="software"><span class="pi-e"><svg viewBox="0 0 64 64"><use href="#ic-laptop"/></svg></span>Softwares<b>5</b></button>
     </div>
 
-    <h3 class="pi-cat" data-rev><span class="pi-ico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4Z"/></svg></span>Marcas</h3>
-    <div class="shelf">
-      <article class="ip" data-rev data-d="1"><span class="t">Marca</span><h4>Liga Norte Riograndense Contra o Câncer</h4><p>A marca institucional da entidade — mais de sete décadas de história no combate ao câncer no Rio Grande do Norte.</p><span class="st st-reg"><span class="d"></span>Registrada no INPI</span></article>
-      <article class="ip" data-rev data-d="2"><span class="t">Marca</span><h4>Liga Contra o Câncer</h4><p>A assinatura pública da instituição, presente nas unidades, campanhas e em toda a comunicação com a sociedade.</p><span class="st st-reg"><span class="d"></span>Registrada no INPI</span></article>
-    </div>
-
-    <h3 class="pi-cat" data-rev><span class="pi-ico t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5.2a2 2 0 0 1-.3 1L5 18a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-4.7-8.8a2 2 0 0 1-.3-1V3"/><path d="M7.5 15h9"/></svg></span>Patente</h3>
-    <div class="shelf">
-      <article class="ip ip-wide" data-rev data-d="1"><span class="t">Patente</span><h4>Dispositivo para dissolução de comprimidos</h4><p>Tecnologia desenvolvida dentro da instituição, a partir de uma necessidade real do cuidado — e o primeiro ativo patentário da carteira da LIGA.</p></article>
-    </div>
-
-    <h3 class="pi-cat" data-rev><span class="pi-ico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8 16-4-4 4-4M16 8l4 4-4 4M14 4l-4 16"/></svg></span>Programas de computador</h3>
-    <div class="shelf">
-      <article class="ip" data-rev data-d="1"><span class="t">Software</span><h4>PEP LIGA</h4><p>O prontuário eletrônico do paciente da instituição — o coração do dado clínico que sustenta a inovação da LIGA.</p></article>
-      <article class="ip" data-rev data-d="2"><span class="t">Software</span><h4>STERTRACE 1</h4><p>Sistema proprietário desenvolvido internamente, protegido como programa de computador.</p></article>
-      <article class="ip" data-rev data-d="3"><span class="t">Software</span><h4>STERTRACE 2</h4><p>Evolução da família STERTRACE, com novas capacidades incorporadas ao processo.</p></article>
-      <article class="ip" data-rev data-d="1"><span class="t">Software</span><h4>STERTRACE 3</h4><p>Terceira geração da família STERTRACE, consolidando a solução dentro da instituição.</p></article>
-      <article class="ip" data-rev data-d="2"><span class="t">Software</span><h4>Chatbot para Quimioterapia</h4><p>Assistente digital voltado ao acompanhamento de pacientes em quimioterapia — tecnologia nascida do cuidado.</p></article>
-      <article class="ip ip-vazio" data-rev data-d="3"><h4>Carteira em expansão</h4><p>Novos ativos são somados à medida que os processos avançam no INPI.</p></article>
+    <div class="pi-grid" id="piGrid">
+      <article class="pi-card" data-tipo="marca" data-rev data-d="1">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-brand"/></svg></span>
+        <div class="pi-txt"><h4>Liga Norte Riograndense Contra o Câncer</h4></div>
+        <span class="st st-reg"><span class="d"></span>Registrada</span>
+      </article>
+      <article class="pi-card" data-tipo="marca" data-rev data-d="2">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-brand"/></svg></span>
+        <div class="pi-txt"><h4>Liga Contra o Câncer</h4></div>
+        <span class="st st-reg"><span class="d"></span>Registrada</span>
+      </article>
+      <article class="pi-card pi-destaque" data-tipo="patente" data-rev data-d="3">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-bulb"/></svg></span>
+        <div class="pi-txt"><h4>Dispositivo para dissolução de comprimidos</h4></div>
+        <span class="st st-pat"><span class="d"></span>Patente</span>
+      </article>
+      <article class="pi-card" data-tipo="software" data-rev data-d="1">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-laptop"/></svg></span>
+        <div class="pi-txt"><h4>PEP LIGA</h4></div>
+        <span class="st st-sw"><span class="d"></span>Software</span>
+      </article>
+      <article class="pi-card" data-tipo="software" data-rev data-d="2">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-laptop"/></svg></span>
+        <div class="pi-txt"><h4>STERTRACE 1</h4></div>
+        <span class="st st-sw"><span class="d"></span>Software</span>
+      </article>
+      <article class="pi-card" data-tipo="software" data-rev data-d="3">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-laptop"/></svg></span>
+        <div class="pi-txt"><h4>STERTRACE 2</h4></div>
+        <span class="st st-sw"><span class="d"></span>Software</span>
+      </article>
+      <article class="pi-card" data-tipo="software" data-rev data-d="1">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-laptop"/></svg></span>
+        <div class="pi-txt"><h4>STERTRACE 3</h4></div>
+        <span class="st st-sw"><span class="d"></span>Software</span>
+      </article>
+      <article class="pi-card" data-tipo="software" data-rev data-d="2">
+        <span class="pi-ic"><svg viewBox="0 0 64 64"><use href="#ic-chat"/></svg></span>
+        <div class="pi-txt"><h4>Chatbot para Quimioterapia</h4></div>
+        <span class="st st-sw"><span class="d"></span>Software</span>
+      </article>
     </div>
   </div>
 </section>
@@ -979,9 +1118,9 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
       <p class="lead" style="margin-inline:auto">Escolha o caminho. A gente responde de perto.</p>
     </div>
     <div class="doors">
-      <article class="door" data-rev data-d="1"><div class="cico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div><h3>Submeta seu projeto</h3><p>Tem uma ideia ou tecnologia que dialoga com a saúde? Traga para a gente avaliar junto.</p><a href="#" class="btn btn--coral">Enviar projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></article>
-      <article class="door" data-rev data-d="2"><div class="cico t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2ZM9 21h6"/></svg></div><h3>Apresente sua startup</h3><p>Busca incubação (SeriHub ou Natal), mentoria ou parceria? Mostre o que você está construindo.</p><a href="#" class="btn btn--coral">Apresentar startup <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></article>
-      <article class="door" data-rev data-d="3"><div class="cico c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div><h3>Tem dúvidas?</h3><p>Quer entender melhor como o NNI funciona ou como podemos colaborar? Fale com a equipe.</p><a href="#" class="btn btn--coral">Falar com o NNI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></article>
+      <article class="door" data-rev data-d="1"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-send"/></svg></div><h3>Submeta seu projeto</h3><p>Tem uma ideia ou tecnologia que dialoga com a saúde? Traga para a gente avaliar junto.</p><a href="#" class="btn btn--coral">Enviar projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></article>
+      <article class="door" data-rev data-d="2"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-rocket"/></svg></div><h3>Apresente sua startup</h3><p>Busca incubação (SeriHub ou Natal), mentoria ou parceria? Mostre o que você está construindo.</p><a href="#" class="btn btn--coral">Apresentar startup <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></article>
+      <article class="door" data-rev data-d="3"><div class="cico"><svg viewBox="0 0 64 64"><use href="#ic-chat"/></svg></div><h3>Tem dúvidas?</h3><p>Quer entender melhor como o NNI funciona ou como podemos colaborar? Fale com a equipe.</p><a href="#" class="btn btn--coral">Falar com o NNI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></article>
     </div>
   </div>
 </section>
@@ -1037,6 +1176,23 @@ h1,h2,h3,h4,h5,.disp{font-family:'Poppins',sans-serif;letter-spacing:-.02em;line
       if(p<1) requestAnimationFrame(step);
     })(performance.now());
   }
+
+  /* ---- Filtro da vitrine de PI ---- */
+  var tabs=document.querySelectorAll('.pi-tab');
+  var piCards=document.querySelectorAll('.pi-card');
+  tabs.forEach(function(tb){
+    tb.addEventListener('click',function(){
+      tabs.forEach(function(t){t.classList.remove('is-on');});
+      tb.classList.add('is-on');
+      var alvo=tb.getAttribute('data-filtro');
+      piCards.forEach(function(c){
+        var mostra=(alvo==='tudo'||c.getAttribute('data-tipo')===alvo);
+        c.classList.remove('entra');
+        if(mostra){ c.classList.remove('oculto'); void c.offsetWidth; c.classList.add('entra'); }
+        else c.classList.add('oculto');
+      });
+    });
+  });
 
   /* ---- Barra de progresso de leitura ---- */
   var prog=document.getElementById('prog');
